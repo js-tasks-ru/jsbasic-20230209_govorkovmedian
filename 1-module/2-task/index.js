@@ -12,7 +12,7 @@ function print(text) {
 function isValid(name) {
   // ваш код...
   
-  let bool = name != null && name.length >= 4 && !(name.includes(' '));
+  let bool = !name  && name.length >= 4 && !(name.includes(' '));
 
   return bool;
 }
