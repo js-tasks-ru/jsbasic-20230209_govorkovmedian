@@ -11,6 +11,10 @@ function print(text) {
  */
 function isValid(name) {
   // ваш код...
+  
+  let bool = !!name  && name.length >= 4 && !(name.includes(' '));
+
+  return bool;
 }
 
 function sayHello() {
