@@ -1,7 +1,7 @@
 function highlight(table) {
   // ваш код...
 
-  [...table.getElementsByTagName('tr')].map(work);
+  [...table.rows].map(work);
 }
 
 
@@ -16,7 +16,7 @@ function work(row)
 
 function putAvailability(row)
 {
-  let d = row.children[3].getAttribute('data-available'); 
+  let d = row.cells[3].getAttribute('data-available'); 
 
   if(d == undefined)
     row.hidden = true;
@@ -27,7 +27,7 @@ function putAvailability(row)
 
 function putSex(row)
 {
-  let d = row.children[2].innerText; 
+  let d = row.cells[2].innerText; 
 
   if(['m','f'].includes(d))
     (d === "m") ? row.classList.add('male') : row.classList.add('female');
@@ -36,7 +36,7 @@ function putSex(row)
 
 function putAge(row)
 {
-  let d = parseInt(row.children[1].innerText); 
+  let d = parseInt(row.cells[1].innerText); 
 
   if(d && d<18)
     row.style = "text-decoration: line-through";
