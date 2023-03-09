@@ -2,7 +2,6 @@ function initCarousel() {
   // ваш код...
 
   let carousel_num = document.querySelector('.carousel__inner').children.length,
-   shift=document.querySelector('.carousel__slide').offsetWidth,
    arrow_left = document.querySelector('.carousel__arrow_left'),
    arrow_right = document.querySelector('.carousel__arrow_right'),
    carousel_inner = document.querySelector('.carousel__inner');;
@@ -12,6 +11,9 @@ function initCarousel() {
     let current=0;
 
     document.querySelector('.container').onclick = (evt) => {
+
+      let shift=document.querySelector('.carousel__slide').offsetWidth;
+
       // arrow_left
       if((obj=evt.target.closest('.carousel__arrow_left')) != null)
       {
