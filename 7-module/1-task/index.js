@@ -23,7 +23,7 @@ export default class RibbonMenu{
 </button>`);
 
     this.elem.insertAdjacentElement('afterbegin', buttonLeft);
-		this.categories.map(c => {this.#elem.querySelector('.ribbon__inner').insertAdjacentElement('beforeend', c.elem)});
+	this.categories.map(c => {this.#elem.querySelector('.ribbon__inner').insertAdjacentElement('beforeend', c.elem)});
     this.elem.insertAdjacentElement('beforeend', buttonRight);
 	}
 
@@ -31,13 +31,13 @@ export default class RibbonMenu{
 		return this.#elem;
 	}
 
-  get shift(){
-    return this.#shift;
-  }
+	get shift(){
+		return this.#shift;
+	}
 
-  set shift(val){
-    this.#shift = val;
-  }
+	set shift(val){
+		this.#shift = val;
+	}
 
 
 	addEventsDispatch(){
@@ -56,12 +56,12 @@ export default class RibbonMenu{
 			this.updateRendering();
 		}
 
-		document.addEventListener('DOMContentLoaded', this.updateRendering, {'once': true});
+		this.elem.addEventListener('DOMContentLoaded', this.updateRendering, {'once': true});
 
 	}
 
 	updateRendering(){
-		let ribbonInner=document.querySelector('.ribbon__inner');
+		let ribbonInner=this.elem.querySelector('.ribbon__inner');
 		let	scrollLeft=ribbonInner.scrollLeft,
 			scrollWidth=ribbonInner.scrollWidth,
 			clientWidth=ribbonInner.clientWidth;
@@ -125,24 +125,3 @@ class Category{
 		})
 	}
 }
-
-
-
-
-let categories = [
-  {
-    id: '',
-    name: 'All'
-  },
-  {
-    id: 'salads', // уникальный идентификатор категории
-    name: 'Salads' // имя категории для отображения
-  },
-  {
-    id: 'soups',
-    name: 'Soups'
-  },
-  // и другие...
-];
-
-let ribbonMenu = new RibbonMenu(categories);
